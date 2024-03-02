@@ -1,0 +1,10 @@
+{
+    "tabWidth": 2,
+    "useTabs": false,
+    "semi": true,
+    "singleQuote": true,
+    "importOrderParserPlugins": ["typescript", "decorators-legacy"],
+    "importOrderSeparation": true,
+    "importOrder": ["<THIRD_PARTY_MODULES>", "^[./]"],
+    "endOfLine": "auto"
+}
