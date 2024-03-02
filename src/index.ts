@@ -9,7 +9,7 @@ import * as cookieParser from 'cookie-parser';
 import helmet from 'helmet';
 import cors from 'cors';
 import * as fastify_express from '@fastify/express';
-import routes from './router.ts';
+import routes from './router';
 
 dotenv.config();
 
