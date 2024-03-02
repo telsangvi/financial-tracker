@@ -26,6 +26,7 @@
   },
   "dependencies": {
     "@fastify/express": "^2.3.0",
+    "@fastify/mongodb": "^8.0.0",
     "@types/compression": "^1.7.5",
     "@types/cookie-parser": "^1.4.7",
     "@types/cors": "^2.8.17",
