@@ -9,6 +9,7 @@ import * as cookieParser from 'cookie-parser';
 import helmet from 'helmet';
 import cors from 'cors';
 import * as fastify_express from '@fastify/express';
+import * as fastify_mongo from '@fastify/mongodb';
 import routes from './router';
 
 dotenv.config();
@@ -16,6 +17,19 @@ dotenv.config();
 const app = Fastify({
   logger: true,
 });
+
+app
+  .register(fastify_mongo, {
+    forceClose: true,
+    url: 'mongodb://db:27017/FinancialTracker',
+  })
+  .after((err) => {
+    if (err) {
+      console.error('Error connecting to MongoDB:', err);
+      process.exit(1);
+    }
+    console.log('Connected to database');
+  });
 
 app.register(fastify_express).after(() => {
   app.use(express.json({ limit: '2mb' }));
