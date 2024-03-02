@@ -1,12 +1,31 @@
 // src/app.ts
-import fastify from 'fastify';
+import Fastify from 'fastify';
+import dotenv from 'dotenv';
+import express from 'express';
+import 'express-async-errors';
+import { json } from 'body-parser';
+import compression from 'compression';
+import * as cookieParser from 'cookie-parser';
+import helmet from 'helmet';
+import cors from 'cors';
+import * as fastify_express from '@fastify/express';
+import routes from './router.ts';
 
-const app = fastify();
+dotenv.config();
 
-// Define a route
-app.get('/', async (request, reply) => ({
-  message: 'Hello, Fastify with TypeScript!',
-}));
+const app = Fastify({
+  logger: true,
+});
+
+app.register(fastify_express).after(() => {
+  app.use(express.json({ limit: '2mb' }));
+  app.use(json());
+  app.use(helmet());
+  app.use(cookieParser.default());
+  app.use(compression());
+  app.use(cors({ credentials: true, origin: true }));
+  app.use('/api', routes);
+});
 
 // Start the server
 const PORT = process.env.PORT || 3000;
