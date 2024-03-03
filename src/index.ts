@@ -9,27 +9,16 @@ import * as cookieParser from 'cookie-parser';
 import helmet from 'helmet';
 import cors from 'cors';
 import * as fastify_express from '@fastify/express';
-import * as fastify_mongo from '@fastify/mongodb';
+import { ObjectId } from 'mongodb';
 import routes from './router';
+import connectToDatabase from './database';
+import UserModel from './entities/User';
 
 dotenv.config();
 
 const app = Fastify({
   logger: true,
 });
-
-app
-  .register(fastify_mongo, {
-    forceClose: true,
-    url: 'mongodb://db:27017/FinancialTracker',
-  })
-  .after((err) => {
-    if (err) {
-      console.error('Error connecting to MongoDB:', err);
-      process.exit(1);
-    }
-    console.log('Connected to database');
-  });
 
 app.register(fastify_express).after(() => {
   app.use(express.json({ limit: '2mb' }));
@@ -39,6 +28,24 @@ app.register(fastify_express).after(() => {
   app.use(compression());
   app.use(cors({ credentials: true, origin: true }));
   app.use('/api', routes);
+});
+
+app.register(async (instance, opts, done) => {
+  await connectToDatabase();
+  done();
+});
+
+app.get('/hello', async (req: Request, res: Response) => {
+  try {
+    const user = await UserModel.findOne({
+      _id: new ObjectId('65e380e474a2663dfa526bf3'),
+    });
+    console.log(user);
+  } catch (err) {
+    console.log(err);
+  }
+  res.status(201);
+  res.json({ hello: 'world' });
 });
 
 // Start the server

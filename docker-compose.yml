@@ -25,6 +25,9 @@ services:
       ME_CONFIG_BASICAUTH_USERNAME: root
       ME_CONFIG_BASICAUTH_PASSWORD: dev
       ME_CONFIG_MONGODB_SERVER: db
+      MONGO_INITDB_DATABASE: FinancialTracker
+      MONGO_INITDB_ROOT_USERNAME: root
+      MONGO_INITDB_ROOT_PASSWORD: dev
     ports:
       - 8081:8081
     depends_on:
