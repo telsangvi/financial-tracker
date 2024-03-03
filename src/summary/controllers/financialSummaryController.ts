@@ -6,7 +6,7 @@ import formatResponse from '../../utils';
 export default class FinancialSummaryController {
   static async getFinancialSummary(req: Request, res: Response) {
     const userId = req.user.id;
-    const { startDate, endDate } = req.body;
+    const { startDate, endDate } = req.query;
 
     const result = await FinancialSummaryService.getFinancialSummary(
       userId,
