@@ -57,6 +57,46 @@ Before you begin, ensure you have the following installed on your system:
 ## Starting the Service
 1. Run docker compose up -d : The service will be accessible at http://localhost:3000
 
+# Docker Compose Configuration
+The `docker-compose.yml`configuration sets up three services:
+
+## MongoDB Service (`db`)
+
+- A MongoDB container named `db` is created based on the `mongo:latest` image.
+- Environment variables are set for initializing the root username, password, and the initial database named `FinancialTracker`.
+- MongoDB data is stored in the local `./.mongodb` directory on the host machine, mapped to the `/data/db` directory inside the container.
+- The MongoDB service is accessible on the host machine at port `27017`.
+- Part of the `network-development` Docker network.
+
+## Mongo Express Service (`mongo-express`)
+
+- A Mongo Express container named `mongo_express` is created based on the `mongo-express` image.
+- Depends on the `db` service, waiting for it to be ready before starting.
+- Environment variables configure access to the MongoDB instance.
+- The web-based Mongo Express interface is accessible on the host machine at port `8081`.
+- Part of the `network-development` Docker network.
+
+## Financial Tracker Application (`financial-tracker`)
+
+- A custom financial-tracker container named `financial-tracker` is created based on a custom image tagged as `financial-tracker:1.0.0`.
+- Built using the `./Dockerfile` from the current context (`.`).
+- Environment variables are loaded from the `.env` file.
+- The application's source code is mounted from the host machine at the current directory to `/usr/financial-tracker` inside the container.
+- Node modules are mounted separately to avoid conflicts between host and container.
+- The application is accessible on the host machine at port `3000`.
+- Port `9229` is exposed for potential debugging.
+- Part of the `network-development` Docker network.
+
+## Networks
+
+- A Docker network named `network-development` is created as a bridge network.
+
+To start the services, run the following command:
+
+```bash
+docker-compose up
+
+
 # Configuring WSL for Docker on Windows
 
 If you are using Windows Subsystem for Linux (WSL) to run Docker on your Windows machine, follow these steps for setup:
