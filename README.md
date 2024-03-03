@@ -31,9 +31,9 @@ financial-tracker/
 ├── README.md
 ├── tsconfig.json
 └── ...
+```
 
 ## Getting Started
-# Getting Started
 
 To get the Financial Tracker service up and running on your local machine, follow these steps:
 
