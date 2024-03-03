@@ -94,7 +94,7 @@ The `docker-compose.yml`configuration sets up three services:
 To start the services, run the following command:
 
 ```bash
-docker-compose up
+docker-compose up -d
 ```
 
 # Configuring WSL for Docker on Windows
