@@ -1,17 +1,14 @@
 import express, { Request, Response } from 'express';
+import UserController from '../controllers/userController';
 
 const routes = express.Router();
 
-routes.get('/hello', async (req: Request, res: Response) => {
-  const users = app.mongo.db.collection('users');
-  try {
-    const user = await users.findOne({ _id: '65e380e474a2663dfa526bf3' });
-    console.log(user);
-  } catch (err) {
-    console.log(err);
-  }
-  res.status(201);
-  res.json({ hello: 'world' });
+routes.get('/register', async (req: Request, res: Response) => {
+  UserController.registerUser(req, res);
+});
+
+routes.post('/login', async (req: Request, res: Response) => {
+  UserController.authenticateUser(req, res);
 });
 
 export default routes;

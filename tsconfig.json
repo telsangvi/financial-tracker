@@ -1,15 +1,24 @@
-// tsconfig.json
 {
   "compilerOptions": {
-    "target": "ESNext",
     "module": "commonjs",
-    "strict": true,
+    "noImplicitReturns": false,
+    "noUnusedLocals": true,
+    "outDir": "lib",
+    "sourceMap": true,
+    "alwaysStrict": true,
     "esModuleInterop": true,
-    "skipLibCheck": true,
-    "forceConsistentCasingInFileNames": true,
-    "outDir": "./dist",
-    "moduleResolution": "node"
+    "resolveJsonModule": true,
+    "allowSyntheticDefaultImports": true,
+    "allowJs": true,
+    "target": "es2018",
+    "lib": ["es2018", "esnext.asynciterable"],
+    "experimentalDecorators": true,
+    "emitDecoratorMetadata": true,
+    "moduleResolution": "Node",
+    "incremental": true,
+    "types": ["mocha", "node"],
   },
-  "include": ["src/**/*.ts"],
+  "compileOnSave": true,
+  "include": ["./src/**/*", "./test/**/*"],
   "exclude": ["node_modules"]
 }
