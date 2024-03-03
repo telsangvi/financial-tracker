@@ -95,7 +95,7 @@ To start the services, run the following command:
 
 ```bash
 docker-compose up
-
+```
 
 # Configuring WSL for Docker on Windows
 
