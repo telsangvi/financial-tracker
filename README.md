@@ -91,18 +91,4 @@ Before configuring WSL for Docker, make sure you have the following installed:
    
 # Husky and Airbnb-Lint Configuration
 
-[Husky](https://github.com/typicode/husky) and [ESLint](https://eslint.org/) with [Airbnb Style Guide](https://github.com/airbnb/javascript) are commonly used tools for maintaining code quality and enforcing coding standards in JavaScript/TypeScript projects. Here's how you can set them up in your project:
-
-## Prerequisites
-
-Make sure you have [Node.js](https://nodejs.org/) and [npm](https://www.npmjs.com/) installed on your machine.
-
-## Steps
-
-1. **Initialize npm:**
-
-   If you haven't already initialized npm in your project, run the following command in your project's root directory:
-
-   ```bash
-   npm init -y
-
+[Husky](https://github.com/typicode/husky) and [ESLint](https://eslint.org/) with [Airbnb Style Guide](https://github.com/airbnb/javascript) are used to maintiain clean code in the project
