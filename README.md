@@ -30,7 +30,7 @@ financial-tracker/
 ├── package.json
 ├── README.md
 ├── tsconfig.json
-├── test
+├── test/
 └── ...
 ```
 
@@ -129,7 +129,25 @@ Before configuring WSL for Docker, make sure you have the following installed:
 
    ```bash
    wsl --set-version Ubuntu-20.04 2
+   ```
    
 # Husky and Airbnb-Lint Configuration
 
 [Husky](https://github.com/typicode/husky) and [ESLint](https://eslint.org/) with [Airbnb Style Guide](https://github.com/airbnb/javascript) are used to maintiain clean code in the project
+
+# Testing
+
+## Overview
+
+This project uses [Jest](https://jestjs.io/) as the testing framework to ensure the correctness of its functionality. The test cases cover various aspects of controllers, entities, middleware functions, route handlers, request/response validation, and business logic services.
+
+## Getting Started with Testing
+
+Before running the tests, make sure you have installed the project dependencies using:
+
+```bash
+npm install
+npm run test - This command will run the test suites and provide feedback on the test results.
+npm run test:coverage - This command will run the tests and generate a detailed coverage report. You can find the coverage report in the coverage directory.
+```
+
