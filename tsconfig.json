@@ -16,7 +16,7 @@
     "emitDecoratorMetadata": true,
     "moduleResolution": "Node",
     "incremental": true,
-    "types": ["mocha", "node"],
+    "types": ["jest", "node"],
   },
   "compileOnSave": true,
   "include": ["./src/**/*", "./test/**/*"],
