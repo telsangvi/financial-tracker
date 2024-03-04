@@ -4,11 +4,17 @@
 
 📊 Financial Tracker is a web service designed to help users manage their finances effectively. It includes features for recording income and expenses, viewing financial summaries, and managing categories.
 
+## Postman Collection
+
+You will find in the under postman folder at root level
+
 ## Folder Structure
 
 ```plaintext
 financial-tracker/
 │
+├── postman/
+│   ├── Financial Planner.postman_collection.json/
 ├── src/
 │   ├── controllers/
 │   ├── entities/
@@ -150,4 +156,33 @@ npm install
 npm run test - This command will run the test suites and provide feedback on the test results.
 npm run test:coverage - This command will run the tests and generate a detailed coverage report. You can find the coverage report in the coverage directory.
 ```
+
+# Future Scope
+
+## 1. Implement Swagger for API Documentation
+
+Enhancing the project's documentation and developer experience by implementing Swagger for API documentation can provide several benefits:
+
+- **Interactive Documentation**: Swagger offers interactive documentation, making it easier for developers to understand and explore API endpoints.
+
+- **Testing and Debugging**: Swagger UI allows developers to test API endpoints directly from the documentation, aiding in the debugging process.
+
+- **Consistency**: Swagger enforces consistency in API documentation, ensuring that it stays up-to-date with the actual API implementation.
+
+## 2. Resolve Errors and Enhance Test Framework
+
+Improving the test framework is crucial for maintaining code quality and ensuring the reliability of the application. Future efforts can focus on resolving errors and enhancing the existing test suite.
+
+### Areas for Improvement
+
+- **Error Handling**: Identify and address any existing errors in the codebase. Enhance error handling mechanisms to provide meaningful feedback during development and testing.
+
+- **Coverage**: Increase test coverage to ensure a comprehensive set of tests that cover various scenarios and edge cases.
+
+- **Test Structure**: Review and enhance the overall structure of the test suite for better organization and readability.
+
+## 3. Implement Dependency Injection Techniques
+
+Implementing dependency injection techniques can lead to more modular and maintainable code. This approach facilitates better testing, promotes code reusability, and simplifies the management of dependencies.
+
 
