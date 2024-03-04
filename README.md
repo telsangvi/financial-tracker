@@ -139,7 +139,7 @@ Before configuring WSL for Docker, make sure you have the following installed:
 
 ## Overview
 
-This project uses [Jest](https://jestjs.io/) as the testing framework to ensure the correctness of its functionality. The test cases cover various aspects of controllers, entities, middleware functions, route handlers, request/response validation, and business logic services.
+This project uses [Jest](https://jestjs.io/) as the testing framework to ensure the correctness of its functionality. The test cases cover various aspects of middleware functions, business logic services and database connection.
 
 ## Getting Started with Testing
 
