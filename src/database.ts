@@ -1,6 +1,6 @@
 import { connect } from 'mongoose';
 
-const MONGO_URI = 'mongodb://db:27017/FinancialTracker';
+const MONGO_URI = process.env.MONGO_URI;
 
 export default async function connectToDatabase(): Promise<void> {
   try {

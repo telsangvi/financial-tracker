@@ -35,19 +35,6 @@ app.register(async (instance, opts, done) => {
   done();
 });
 
-app.get('/hello', async (req: Request, res: Response) => {
-  try {
-    const user = await UserModel.findOne({
-      _id: new ObjectId('65e380e474a2663dfa526bf3'),
-    });
-    console.log(user);
-  } catch (err) {
-    console.log(err);
-  }
-  res.status(201);
-  res.json({ hello: 'world' });
-});
-
 // Start the server
 const PORT = process.env.PORT || 3000;
 app.listen(PORT, '0.0.0.0', (err) => {
