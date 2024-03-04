@@ -13,19 +13,19 @@ export default function validateRequest(
         req.body = validatedBody;
       }
 
-        if (paramsSchema && req.params) {
-            const validatedParams = Type.parse(paramsSchema, req.params);
-            req.params = validatedParams;
-        }
+      if (paramsSchema && req.params) {
+        const validatedParams = Type.parse(paramsSchema, req.params);
+        req.params = validatedParams;
+      }
 
-        next();
+      next();
     } catch (error) {
-        if (error instanceof Type.Error) {
-          res.status(400).json({ error: 'bad request' });
-        } else {
-            console.error('Error in request validation middleware:', error);
-            res.status(500).json({ error: 'Internal server error occurred' });
-        }
+      if (error instanceof Type.Error) {
+        res.status(400).json({ error: 'bad request' });
+      } else {
+        console.error('Error in request validation middleware:', error);
+        res.status(500).json({ error: 'Internal server error occurred' });
+      }
     }
   };
 }

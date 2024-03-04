@@ -4,30 +4,55 @@ import validateRequest from '../../middlewares/requestValidation';
 import {
   AddTransactionRequest,
   UpdateTransactionRequest,
-  ObjectIdParam
+  ObjectIdParam,
 } from '../schema/transactionSchema';
+
 const routes = express.Router();
 
-// Add a new income/expense record
+/**
+ * @route POST /api/transactions
+ * @group Transaction - Operations related to transactions
+ * @param {AddTransactionRequest.model} request.body.required - Transaction information for addition
+ * @returns {object} 200 - Transaction added successfully
+ * @returns {Error} 500 - Internal Server Error
+ */
 routes.post('/', async (req: Request, res: Response) => {
   validateRequest(AddTransactionRequest),
   TransactionController.addTransaction(req, res);
 });
 
-// Fetch all transactions for the logged-in user
+/**
+ * @route GET /api/transactions
+ * @group Transaction - Operations related to transactions
+ * @returns {object} 200 - List of transactions fetched successfully
+ * @returns {Error} 500 - Internal Server Error
+ */
 routes.get('/', async (req: Request, res: Response) => {
   TransactionController.getAllTransactions(req, res);
 });
 
-// Update a specific transaction
+/**
+ * @route PUT /api/transactions/{transactionId}
+ * @group Transaction - Operations related to transactions
+ * @param {UpdateTransactionRequest.model} request.body.required - Updated transaction information
+ * @param {ObjectIdParam.param} request.params.transactionId.required - Transaction ID to update
+ * @returns {object} 200 - Transaction updated successfully
+ * @returns {Error} 500 - Internal Server Error
+ */
 routes.put('/:transactionId', async (req: Request, res: Response) => {
-  validateRequest(UpdateTransactionRequest,ObjectIdParam),
+  validateRequest(UpdateTransactionRequest, ObjectIdParam),
   TransactionController.updateTransaction(req, res);
 });
 
-// Delete a specific transaction
+/**
+ * @route DELETE /api/transactions/{transactionId}
+ * @group Transaction - Operations related to transactions
+ * @param {ObjectIdParam.param} request.params.transactionId.required - Transaction ID to delete
+ * @returns {object} 200 - Transaction deleted successfully
+ * @returns {Error} 500 - Internal Server Error
+ */
 routes.delete('/:transactionId', async (req: Request, res: Response) => {
-  validateRequest(undefined,ObjectIdParam),
+  validateRequest(undefined, ObjectIdParam),
   TransactionController.deleteTransaction(req, res);
 });
 
