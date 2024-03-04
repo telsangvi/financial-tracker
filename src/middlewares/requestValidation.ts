@@ -7,6 +7,7 @@ export default function validateRequest(
   paramsSchema?: Type,
 ): (req: Request, res: Response, next: NextFunction) => void {
   return function (req: Request, res: Response, next: NextFunction): void {
+
     try {
       if (bodySchema && req.body) {
         const validatedBody = Type.parse(bodySchema, req.body);

@@ -16,8 +16,8 @@ const routes = express.Router();
  * @returns {object} 200 - Category added successfully
  * @returns {Error} 500 - Internal Server Error
  */
-routes.post('/', async (req: Request, res: Response) => {
-  validateRequest(AddCategoryRequest), CategoryController.addCategory(req, res);
+routes.post('/', validateRequest(AddCategoryRequest),async (req: Request, res: Response) => {
+   CategoryController.addCategory(req, res);
 });
 
 /**
@@ -38,8 +38,7 @@ routes.get('/', async (req: Request, res: Response) => {
  * @returns {object} 200 - Category updated successfully
  * @returns {Error} 500 - Internal Server Error
  */
-routes.put('/:categoryId', async (req: Request, res: Response) => {
-  validateRequest(UpdateCategoryRequest, ObjectIdParam),
+routes.put('/:categoryId', validateRequest(UpdateCategoryRequest, ObjectIdParam),async (req: Request, res: Response) => {
   CategoryController.updateCategory(req, res);
 });
 
@@ -50,8 +49,7 @@ routes.put('/:categoryId', async (req: Request, res: Response) => {
  * @returns {object} 200 - Category deleted successfully
  * @returns {Error} 500 - Internal Server Error
  */
-routes.delete('/:categoryId', async (req: Request, res: Response) => {
-  validateRequest(undefined, ObjectIdParam),
+routes.delete('/:categoryId', validateRequest(undefined, ObjectIdParam),async (req: Request, res: Response) => {
   CategoryController.deleteCategory(req, res);
 });
 

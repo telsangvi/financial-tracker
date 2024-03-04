@@ -16,8 +16,7 @@ const routes = express.Router();
  * @returns {object} 200 - Transaction added successfully
  * @returns {Error} 500 - Internal Server Error
  */
-routes.post('/', async (req: Request, res: Response) => {
-  validateRequest(AddTransactionRequest),
+routes.post('/',validateRequest(AddTransactionRequest), async (req: Request, res: Response) => {
   TransactionController.addTransaction(req, res);
 });
 
@@ -39,8 +38,7 @@ routes.get('/', async (req: Request, res: Response) => {
  * @returns {object} 200 - Transaction updated successfully
  * @returns {Error} 500 - Internal Server Error
  */
-routes.put('/:transactionId', async (req: Request, res: Response) => {
-  validateRequest(UpdateTransactionRequest, ObjectIdParam),
+routes.put('/:transactionId',  validateRequest(UpdateTransactionRequest, ObjectIdParam), async (req: Request, res: Response) => {
   TransactionController.updateTransaction(req, res);
 });
 
@@ -51,8 +49,7 @@ routes.put('/:transactionId', async (req: Request, res: Response) => {
  * @returns {object} 200 - Transaction deleted successfully
  * @returns {Error} 500 - Internal Server Error
  */
-routes.delete('/:transactionId', async (req: Request, res: Response) => {
-  validateRequest(undefined, ObjectIdParam),
+routes.delete('/:transactionId',validateRequest(undefined, ObjectIdParam), async (req: Request, res: Response) => {
   TransactionController.deleteTransaction(req, res);
 });
 
