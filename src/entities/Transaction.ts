@@ -5,7 +5,7 @@ enum TransactionType {
   Expense = 'expense',
 }
 
-interface ITransaction extends Document {
+export interface ITransaction extends Document {
   amount: number;
   date: Date;
   category: string;

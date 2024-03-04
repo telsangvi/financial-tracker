@@ -1,4 +1,3 @@
-import { Request, Response } from 'express';
 import { ObjectId } from 'mongodb';
 import Transaction from '../../entities/Transaction';
 
@@ -6,7 +5,7 @@ export default class TransactionService {
   public static async addTransaction(
     userId: ObjectId,
     transactionInput: TransactionInput,
-  ): Promise<Transaction | null> {
+  ): Promise<any> {
     try {
       // Create a new transaction instance
       const newTransaction = new Transaction({
@@ -41,7 +40,7 @@ export default class TransactionService {
 
   public static async getAllTransactions(
     userId: ObjectId,
-  ): Promise<ITransaction[]> {
+  ): Promise<any> {
     try {
       // Fetch all transactions for the given user
       const transactions = await Transaction.find({ userReference: userId });
@@ -70,7 +69,7 @@ export default class TransactionService {
     userId: ObjectId,
     transactionId: ObjectId,
     updateData: Partial<ITransaction>,
-  ): Promise<ITransaction | null> {
+  ): Promise<any> {
     try {
       // Find the transaction by ID and user reference
       const transaction = await Transaction.findOne({
@@ -108,7 +107,7 @@ export default class TransactionService {
   public static async deleteTransaction(
     userId: ObjectId,
     transactionId: ObjectId,
-  ): Promise<boolean> {
+  ): Promise<any> {
     try {
       // Delete the transaction by ID and user reference
       const result = await Transaction.deleteOne({

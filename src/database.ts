@@ -8,6 +8,5 @@ export default async function connectToDatabase(): Promise<void> {
     console.log('Connected to mongo database');
   } catch (err) {
     console.log('Error connecting to mongo database', err);
-    process.exit(1);
   }
 }

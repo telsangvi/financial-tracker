@@ -1,3 +1,4 @@
+import jwt from 'jsonwebtoken';
 import User from '../../entities/User';
 
 export default class UserService {
