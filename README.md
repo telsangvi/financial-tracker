@@ -4,11 +4,17 @@
 
 📊 Financial Tracker is a web service designed to help users manage their finances effectively. It includes features for recording income and expenses, viewing financial summaries, and managing categories.
 
+## Postman Collection
+
+You will find in the under postman folder at root level
+
 ## Folder Structure
 
 ```plaintext
 financial-tracker/
 │
+├── postman/
+│   ├── Financial Planner.postman_collection.json/
 ├── src/
 │   ├── controllers/
 │   ├── entities/
