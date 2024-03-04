@@ -3,7 +3,7 @@ import jwt, { JwtPayload } from 'jsonwebtoken';
 
 const JWT_SECRET = process.env.JWT_SECRET
 
-const authenticateToken = (
+const validateToken = (
     req: Request,
     res: Response,
     next: NextFunction
@@ -28,4 +28,4 @@ const authenticateToken = (
     });
 };
 
-export default authenticateToken
+export default validateToken
