@@ -31,7 +31,7 @@ export default class UserService {
       await newUser.save();
 
       // Generate a JWT token
-      const token = jwt.sign({ userId: newUser._id }, 'yourSecretKey', {
+      const token = jwt.sign({ userId: newUser._id }, process.env.JWT_SECRET, {
         expiresIn: '1h',
       });
 
@@ -67,7 +67,7 @@ export default class UserService {
       }
 
       // Generate a JWT token
-      const token = jwt.sign({ userId: user._id }, 'yourSecretKey', {
+      const token = jwt.sign({ userId: user._id }, process.env.JWT_SECRET, {
         expiresIn: '1h',
       });
 
