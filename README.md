@@ -30,6 +30,7 @@ financial-tracker/
 ├── package.json
 ├── README.md
 ├── tsconfig.json
+├── test
 └── ...
 ```
 
