@@ -5,7 +5,7 @@ export default class CategoryService {
   public static async addCategory(
     userId: ObjectId,
     categoryName: string,
-  ): Promise<Category | null> {
+  ): Promise<any> {
     try {
       // Create a new category instance
       const newCategory = new Category({
@@ -34,7 +34,7 @@ export default class CategoryService {
     }
   }
 
-  public static async getAllCategories(userId: ObjectId): Promise<Category[]> {
+  public static async getAllCategories(userId: ObjectId): Promise<any> {
     try {
       // Fetch all categories for the given user
       const categories = await Category.find({ userReference: userId });
@@ -61,7 +61,7 @@ export default class CategoryService {
     userId: ObjectId,
     categoryId: ObjectId,
     updateData: Partial<Category>,
-  ): Promise<Category | null> {
+  ): Promise<any> {
     try {
       // Find the category by ID and user reference
       const category = await Category.findOne({
@@ -99,7 +99,7 @@ export default class CategoryService {
   public static async deleteCategory(
     userId: ObjectId,
     categoryId: ObjectId,
-  ): Promise<boolean> {
+  ): Promise<any> {
     try {
       // Delete the category by ID and user reference
       const result = await Category.deleteOne({
